@@ -5,7 +5,6 @@ pipeline {
     }
 
     tools {
-        // Install the Maven version configured as "M3" and add it to the path.
         maven "M3"
     }
 
@@ -20,7 +19,6 @@ pipeline {
                 }
             }
         }
-
         stage('Integration Test') {
             steps{
                  script {
@@ -66,7 +64,6 @@ pipeline {
         }
 
         stage('Deploy') {
-
             steps {
                 script {
                     bat "kubectl apply -f deployment.yml"
