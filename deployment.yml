@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloworld-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: helloworld-app
+  template:
+    metadata:
+      labels:
+        app: helloworld-app
+    spec:
+      containers:
+        - name: helloworld-app
+          image: coppimilo/mds:latest
+          ports:
+            - containerPort: 9090

@@ -65,6 +65,16 @@ pipeline {
             }
         }
 
-
+        stage('Deploy') {
+            when {
+                branch 'master'  //only run these steps on the master branch
+            }
+            steps {
+                script {
+                    bat "kubectl apply -f deployment.yml"
+                    bat "kubectl apply -f service.yml"
+                }
+            }
+        }
     }
 }
