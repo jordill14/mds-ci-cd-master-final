@@ -69,12 +69,9 @@ pipeline {
 
             steps {
                 script {
-                    if (env.BRANCH_NAME == 'master') {
-                        bat "kubectl apply -f deployment.yml"
-                        bat "kubectl apply -f service.yml"
-                    } else {
-                        echo "Branch " + env.BRANCH_NAME + " don't run deploy step"
-                    }
+                    bat "kubectl apply -f deployment.yml"
+                    bat "kubectl apply -f service.yml"
+
                 }
             }
         }
