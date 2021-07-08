@@ -1,2 +1,2 @@
-com\example\ExampleResourceTest.class
-com\example\NativeExampleResourceIT.class
+com\example\RestControllerTest.class
+com\example\RestControllerTestIT.class
