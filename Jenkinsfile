@@ -29,6 +29,22 @@ pipeline {
                 }
             }
         }
+
+        stage('Build & SonarQube') {
+            steps {
+                script {
+                    withSonarQubeEnv('SonarQube') {
+                        bat "mvn clean package sonar:sonar"
+                    }
+                }
+            }
+            post {
+                success {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                    archiveArtifacts 'target/*.jar'
+                }
+            }
+        }
     }
 
 
